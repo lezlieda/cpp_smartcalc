@@ -1,0 +1,238 @@
+\input texinfo
+@setfilename SmartCalc_v2.0.info
+@documentencoding UTF-8
+
+@settitle SmartCalc_v2.0
+
+@titlepage
+@title SmartCalc_v2.0
+@subtitle User Manual
+@author lezlieda
+
+@page
+@vskip 0pt plus 1filll
+@end titlepage
+
+@headings on
+
+@contents
+
+@node Top
+@top SmartCalc_v2.0
+
+@menu
+* Introduction::                 Introduction
+* Installation::                 Installation
+* Usage::                        Usage
+* Bugs::                         Bugs
+@end menu
+
+@node Introduction
+@chapter Introduction
+
+The SmartCalc_v2 is developed C++ language of C++17 standard.
+
+GUI implementation is done using Qt 6.2.3 library.
+
+The program builds with Makefile, which contains the following targets: all, 
+test, install, uninstall, dist, dvi, gcov_report, check, clean, rebuild.
+
+The program developed according to the principles of structured programming, 
+when writing the code, the Google style was used.
+
+Classes are implemented within the s21 namespace.
+
+Full coverage of expression calculation modules with un with unit tests is
+provided using the GTest library.
+
+Both integers and real numbers with a dot can be input into the program.
+The calculation is done after you complete entering the calculating expression
+and press the = symbol.
+
+Calculating arbitrary bracketed arithmetic expressions in infix notation.
+Calculate arbitrary bracketed arithmetic expressions in infix notation
+with substitution of the value of the variable x as a number.
+
+Plotting a graph of a function given by an expression in infix notation with the
+variable x (with coordinate axes, mark of the used scale and an adaptive grid).
+Domain and codomain of a function are limited to at numbers from -1000000 to
+1000000.
+
+Users are able to enter up to 255 characters.
+
+Bracketed arithmetic expressions in infix notation support the following
+arithmetic operations and mathematical functions:
+
+@center @b{Arithmetic operators:}
+@multitable @columnfractions .40 .40
+@headitem Operator name @tab Infix notation (Classic)
+@item Brackets @tab (a + b)
+@item Addition minus @tab a + b
+@item Subtraction @tab a - b
+@item Multiplication @tab a * b
+@item Division @tab a / b
+@item Power @tab a ^ b
+@item Modulus root @tab a Mod b
+@item Unary plus root @tab +a
+@item Unary minus @tab -a
+@end multitable
+
+@center @b{Mathematical functions:}
+@multitable @columnfractions .40 .40
+@headitem Function description @tab Infix notation (Classic)
+@item Computes cosine @tab cos(x)
+@item Computes sine @tab sin(x)
+@item Computes tangent @tab tan(x)
+@item Computes arc cosine @tab acos(x)
+@item Computes arc sine @tab asin(x)
+@item Computes arc tangent @tab atan(x)
+@item Computes square root @tab sqrt(x)
+@item Computes natural logarithm @tab ln(x)
+@item Computes common logarithm @tab log(x)
+@end multitable
+
+@strong{Bonus. Credit calculator.}
+
+The program gets the following parameters from the user:
+
+@itemize @bullet
+@item loan amount;
+@item loan term in months or years;
+@item annual interest rate;
+@item payment type (annuity or differentiated).
+@end itemize
+
+The program calculates the following values:
+
+@itemize @bullet
+@item monthly payment amount;
+@item total amount of overpayment;
+@item total amount of payment;
+@item payment schedule with adjusted last payment.
+@end itemize
+
+@node Installation
+@chapter Installation
+
+To install the program, you need to go to the src directory and run the
+following commands in the terminal:
+
+@itemize @bullet
+@item @command{make install}
+@end itemize
+
+It will create a directory 'build' and compile the program, copy the 
+program to the @file{~/Desktop} directory.
+
+If you want to uninstall the program, you need to go to the src directory and
+run the following commands in the terminal:
+
+@itemize @bullet
+@item @command{make uninstall}
+@end itemize
+
+It will remove the directory 'build' and delete the program from the
+@file{~/Desktop} directory.
+
+@node Usage
+@chapter Usage
+@menu
+* Starting the program::         Starting the program
+* Using the program::            Using the program
+* Using the plot window::        Using the plot window
+* Using the credit calculator::  Using the credit calculator
+@end menu
+
+To run the program after installation, you need to go to the @file{~/Desktop}
+directory and double-click on the @file{SmartCalc_v2.0} icon.
+The program will start and you will see the following window:
+
+@center @image{SmartCalc_v2.0, 300pt}
+
+You can enter an expression using both the numeric keypad with the mouse, and
+directly edit the input field from the keyboard. While you did not put the
+cursor in the input field, you can use the following keyboard shortcuts:
+
+@itemize @bullet
+@item @kbd{C} - cos;
+@item @kbd{S} - sin;
+@item @kbd{T} - tan;
+@item @kbd{O} - acos;
+@item @kbd{I} - asin;
+@item @kbd{A} - atan;
+@item @kbd{Q} - sqrt;
+@item @kbd{L} - ln;
+@item @kbd{G} - log;
+@item @kbd{M} - Mod;
+@item @kbd{backspace} - delete the last character;
+@item @kbd{return} - open plot window;
+@item @kbd{E} - input number e;
+@item @kbd{P} - input number pi;
+@item @kbd{X} - input variable x;
+@end itemize
+
+There are also shortcuts for all arithmetic operations and numbers.
+
+In the main window there is an option to change the number of decimal places
+displayed. The default is 7 decimal places. You can change the number of
+decimal places from 0 to 16.
+
+There is also an option to show insignificant zeros. By default, insignificant
+zeros are not displayed.
+
+After entering the expression, you need to press the @kbd{=} key to calculate
+the result. If the expression is entered incorrectly, the program will display
+an error message and the result will not be calculated.
+If the expression is entered correctly, the program will display the result in
+the output field and the expression will be added to the history.
+
+If the input expression contains the variable x, the program will display the
+window for entering the value of the variable x.
+
+@center @image{SmartCalc_v2.0_x,,180pt}
+
+After entering the expression if you press the @kbd{PLOT} button, the program 
+will display the plot window. To draw a graph, you need to enter the displayed 
+domain and codomain values limited to at numbers from -1000000 to 1000000 and
+press the @kbd{PLOT}. If the entered values are incorrect, the program will
+display an error message and the graph will not be drawn.
+If the entered values are correct, the program will display the graph in the
+plot window.
+
+@center @image{SmartCalc_v2.0_plot_1, 300pt}
+
+@center @image{SmartCalc_v2.0_plot_2, 300pt}
+
+@b{Note.} The program can draw graphs of functions with discontinuity points
+of the second kind incorrectly on the large domain. This is due to the
+limitations of the library used to draw graphs. To avoid this, you need to
+limit the domain of the function.
+
+@center @image{SmartCalc_v2.0_plot_3, 300pt}
+
+@center @image{SmartCalc_v2.0_plot_4, 300pt}
+
+@b{Note.} The program can draw graphs of functions with asimptotic points
+incorrectly on the large codomain. This is due to the limitations of the
+library used to calculate the function. To avoid this, you need to limit the
+codomain of the function.
+
+To close the plot window, you need to press the @kbd{CLOSE} button.
+The function drawn in the plot window will be added to the history.
+
+@center @image{SmartCalc_v2.0_credit, 300pt}
+
+To use the credit calculator, you need switch to the credit calculator tab.
+After entering the parameters, you need to press the @kbd{CALCULATE} button.
+The program will display the payment schedule with adjusted last payment.
+
+@node Bugs
+@chapter Bugs
+
+Although the program can be installed on Linux, the interface was designed for
+MacOS, so the interface may differ on Linux.
+
+There is a significant bug in the program installed on Linux. The program
+discards all fractional parts of numbers. This bug does not occur on MacOS.
+
+@bye
