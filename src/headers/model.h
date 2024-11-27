@@ -37,8 +37,8 @@ class Model {
     std::vector<Model::Token> rpn = Tokenize(input);
     rpn = ConvertToRPN(rpn);
     std::stack<double> stack;
-    double a = 0;
-    double b = 0;
+    double a = 0.;
+    double b = 0.;
     for (auto it : rpn) {
       if (it.type == Token::OPERAND) {
         if (it.str == "e") {
@@ -48,6 +48,7 @@ class Model {
         } else if (it.str == "x") {
           stack.push(x);
         } else {
+          std::setlocale(LC_NUMERIC, "C");
           stack.push((double)std::stod(it.str));
         }
       } else if (it.type == Token::OPERATOR) {
@@ -356,9 +357,6 @@ class Model {
       rpn.push_back(stack.top());
       stack.pop();
     }
-    // for (auto it : rpn) {
-    //   std::cout << it.str << " ";
-    // }
     return rpn;
   }
 
