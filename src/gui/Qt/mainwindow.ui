@@ -23,7 +23,7 @@
       </size>
     </property>
     <property name="windowTitle">
-      <string>s21_Smart_Calculator_v1.0</string>
+      <string>s21_Smart_Calculator_v2.0</string>
     </property>
     <property name="styleSheet">
       <string notr="true">QWidget{

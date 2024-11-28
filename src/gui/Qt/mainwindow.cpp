@@ -170,6 +170,7 @@ void MainWindow::equal_button() {
 
 void MainWindow::plot_button() {
   QString input_str = ui->main_display->text();
+  input_str.replace("π", "pi");
   int ex = 0;
   try {
     controler.Calculus(input_str.toStdString(), 1);
